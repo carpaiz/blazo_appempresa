@@ -1,4 +1,4 @@
-@page "/call-web-api"
+@page "/v_cliente"
 @using AppEmpresa.Data
 @using System.Text.Json
 @using System.Text.Json.Serialization
@@ -13,27 +13,34 @@
 }
 else
 {
-
-<input @bind="varid_cliente" type="number" placeholder="id" />    
-<input @bind="varNombres" placeholder="Nombres" />
-<input @bind="varApellidos" placeholder="Apellidos" />
-<input @bind="varDireccion" placeholder="Direccion" />
-<input @bind="varTelefono" placeholder="Telefono" />
-<input @bind="varfn" type="date" placeholder="Fecha Nacimiento" />
-<button @onclick="Create">Crear</button>
-<button @onclick="Put">Modificar</button>    
-<button @onclick="Delete">Eliminar</button>    
-  
+<form>
+<label for="label_id" class="form-label">ID</label>
+<input @bind="varid_cliente" class="form-control" type="number" placeholder="id"  readonly/> 
+<label for="label_nombres" class="form-label">Nombres</label>   
+<input @bind="varNombres" class="form-control" placeholder="Nombres" />
+<label for="label_apellidos" class="form-label">Apellidos</label>
+<input @bind="varApellidos" class="form-control" placeholder="Apellidos" />
+<label for="label_direccion" class="form-label">Direccion</label>
+<input @bind="varDireccion" class="form-control" placeholder="Direccion" />
+<label for="label_telefono" class="form-label">Telefono</label>
+<input @bind="varTelefono" class="form-control" placeholder="Telefono" />
+<label for="label_fn" class="form-label">Fecha de Nacimineto</label>
+<input @bind="varfn" type="date" class="form-control" placeholder="Fecha Nacimiento" />
+    <br>
+<button class="btn btn-info"  @onclick="Create">Crear</button>
+<button class="btn btn-success" @onclick="Put">Modificar</button>    
+<button class="btn btn-danger"  @onclick="Delete">Eliminar</button>    
+  </form>
   
     <table class="table">
          <tbody>
             <tr>
+                <th>accion</th>
               <th>Nombres</th> 
               <th>Apellidos</th>
               <th>Direccion</th>
               <th>Telefono</th>
               <th>Nacimiento</th>
-              <th>accion</th>
               </tr>     
             </tbody>
         @foreach (var cliente in icliente)
